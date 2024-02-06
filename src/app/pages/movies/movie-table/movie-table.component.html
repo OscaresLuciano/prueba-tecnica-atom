@@ -1,0 +1,94 @@
+<div
+  *ngIf="movieData"
+  class="mat-table table-responsive table table-hover table-dark"
+>
+  <div class="row">
+    <div class="col-sm-12 col-lg-10 mx-auto">
+      <table
+        mat-table
+        [dataSource]="movieData"
+        matSort
+        matSortDisableClear
+        (matSortChange)="onSort($event)"
+        class="mat-elevation-z8 table table-hover table-responsive"
+        *ngIf="movieData.length > 0"
+      >
+        <!-- Columna ID -->
+        <ng-container matColumnDef="IMDB ID">
+          <th mat-header-cell *matHeaderCellDef class="align-middle">ID</th>
+          <td mat-cell *matCellDef="let movie" class="align-middle">
+            {{ movie.imdbID }}
+          </td>
+        </ng-container>
+
+        <!-- Columna Título -->
+        <ng-container matColumnDef="Titulo">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="align-middle"
+          >
+            Titulo
+          </th>
+          <td mat-cell *matCellDef="let movie" class="align-middle">
+            {{ movie.Title }}
+          </td>
+        </ng-container>
+
+        <!-- Columna Tipo -->
+        <ng-container matColumnDef="Tipo">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="align-middle"
+          >
+            Tipo
+          </th>
+          <td mat-cell *matCellDef="let movie" class="align-middle">
+            {{ translateType(movie.Type) }}
+          </td>
+        </ng-container>
+
+        <!-- Columna Año -->
+        <ng-container matColumnDef="Año">
+          <th mat-header-cell *matHeaderCellDef class="align-middle">Año</th>
+          <td mat-cell *matCellDef="let movie" class="align-middle">
+            {{ movie.Year }}
+          </td>
+        </ng-container>
+
+        <!-- Columna Poster -->
+        <ng-container matColumnDef="Poster">
+          <th mat-header-cell *matHeaderCellDef class="align-middle">Poster</th>
+          <td mat-cell *matCellDef="let movie" class="align-middle">
+            <img
+              src="{{ movie.Poster | defaultImage }}"
+              alt="Poster de la película {{ movie.Title }}"
+              height="200px"
+            />
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns"
+          class="table"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          class="justify-content-around"
+        ></tr>
+      </table>
+
+      <div
+        class="bg-white text-dark text-center col-8 mx-auto mb-5"
+        *ngIf="movieData.length === 0"
+      >
+        <h3 class="h3">¡Ups! No hubo coincidencias con tu búsqueda.</h3>
+      </div>
+    </div>
+  </div>
+</div>

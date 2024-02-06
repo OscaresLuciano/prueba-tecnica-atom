@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 m-auto py-5">
+      <h2 class="pb-md-3">Ingrese una película:</h2>
+      <form [formGroup]="searchForm">
+        <input
+          class="form-control"
+          arial-label="MovieName"
+          type="text"
+          placeholder="Dragon Ball"
+          formControlName="searchValue"
+        />
+      </form>
+      <div class="col-4 mx-auto pt-3">
+        <button
+          style="background-color: #f5b300; color: black"
+          class="form-control btn btn-dark col-6"
+          (click)="onSearchSubmit()"
+        >
+          Buscar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  @defer(on viewport) {
+  <app-movie-table [movieData]="movies"></app-movie-table>
+  } @placeholder { <span></span> }@loading {
+  <div
+    style="height: 300px; width: 100%; text-align: center; padding-bottom: 2rem"
+  >
+    <h3 style="font-weight: 700">Cargando...</h3>
+    <img src="../../../../assets/images/logo.png" alt="" />
+  </div>
+  }
+</div>

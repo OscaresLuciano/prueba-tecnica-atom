@@ -1,0 +1,42 @@
+<div class="col bg-white text-dark d-flex justify-content-center">
+  <main>
+    <div class="container pt-5">
+      <div class="col-12 texto-mockeado text-center pb-4">
+        <h1 class="title h1 fw-bold">{{ mainText.textoPrincipal }}</h1>
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-8">
+            <p>
+              {{ mainText.textoSecundario }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card text-center border border-0 rounded-4 py-5">
+        <div class="col-md-8 mx-auto">
+          <div class="row my-auto">
+            <div class="col-sm-6 pb-sm-3 pb-md-0">
+              <img
+                src="../../../assets/images/caritas-negras.png"
+                alt="Imágen de caritas negras"
+                width="182px"
+                height="182px"
+              />
+            </div>
+            <div class="col-sm-6">
+              <p
+                class="h1 fw-bolder pt-3 pt-lg-0 d-grid col-10 mx-auto text-start"
+              >
+                {{ mainText.textoSobreOtroElemento }}
+              </p>
+              <div class="d-grid col-10 mx-auto pt-3">
+                <button class="btn btn-dark">
+                  <a routerLink="/movies"> Ingresar </a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
